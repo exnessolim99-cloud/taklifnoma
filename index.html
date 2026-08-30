@@ -1,3 +1,142 @@
+[30.08.2026 23:03] 🛡️: <!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To'yga Taklifnoma</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #fcf8f2;
+            color: #4a4a4a;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        .hero-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #d4af37;
+            margin: 10px 0;
+        }
+        .subtitle {
+            font-style: italic;
+            color: #777;
+        }
+        .date-box {
+            font-size: 1.1em;
+            margin: 25px 0;
+            padding: 15px;
+            border-top: 1px solid #d4af37;
+            border-bottom: 1px solid #d4af37;
+        }
+        /* Taymer stili */
+        #timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        .time-card {
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 10px 15px;
+            min-width: 60px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .time-card span {
+            display: block;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #d4af37;
+        }
+        .time-card small {
+            font-size: 0.8em;
+            color: #666;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #d4af37;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1em;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #b59226;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Rasm joyi: 'rasm.jpg' o'rniga o'zingiz yuklagan rasm nomini yozasiz -->
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="To'y rasmi" class="hero-img">
+
+        <p class="subtitle">HURMATLI MEHMONIMIZ!</p>
+        <p>Sizni to'y tantanamizga taklif etamiz:</p>
+        
+        <h1>Ali & Valida</h1>
+        
+        <div class="date-box">
+            <p>🗓 <strong>SANA:</strong> 25-Sentabr, 2026-yil</p>
+            <p>⏰ <strong>VAQTI:</strong> Soat 18:00 da</p>
+        </div>
+
+        <!-- Taymer -->
+        <h3>Tantanagacha qolgan vaqt:</h3>
+        <div id="timer">
+            <div class="time-card"><span id="days">00</span><small>kun</small></div>
+            <div class="time-card"><span id="hours">00</span><small>soat</small></div>
+            <div class="time-card"><span id="minutes">00</span><small>daqiqa</small></div>
+            <div class="time-card"><span id="seconds">00</span><small>soniya</small></div>
+        </div>
+
+        <h3>Manzil:</h3>
+        <p>Toshkent shahri, "Versal" restorani</p>
+
+        <!-- Karta havolasi -->
+        <a href="https://maps.google.com" target="_blank" class="btn">📍 Xaritada ko'rish</a>
+    </div>
+
+    <script>
+        // To'y sanasini belgilash (Yil, Oy-1, Kun, Soat, Daqiqa)
+        // Diqqat: Oylar 0 dan boshlanadi (Yanvar=0, Sentabr=8)
+        const weddingDate = new Date(2026, 8, 25, 18, 0, 0).getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("timer").innerHTML = "<h3>To'y tantanasi boshlandi!</h3>";
+                return;
+            }
+[30.08.2026 23:03] 🛡️: const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) /Mana, taymer (ortga hisoblagich) va rasm joylash imkoniyati bor yangilangan HTML/CSS/JS kodi. 
+
+Koddagi toygacha_sana, kuyov_va_kelin_rasmi.jpg hamda ism va manzillarni o'zingiznikiga o meyoriy moslab o'zgartiring.
+
+`html
 <!DOCTYPE html>
 <html lang="uz">
 <head>
@@ -16,57 +155,23 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 30px 20px;
+        }
+        .main-img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             color: #d4af37;
-            margin-bottom: 10px;
-        }
-        h2 {
-            font-size: 1.5em;
-            font-weight: normal;
+            margin: 10px 0;
         }
         .date {
-            font-size: 1.2em;
+            font-size: 1.1em;
             margin: 20px 0;
             padding: 15px;
-            border-top: 1px solid #d4af37;
-            border-bottom: 1px solid #d4af37;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #d4af37;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 1em;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background-color: #b59226;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <p>HURMATLI MEHMONIMIZ!</p>
-        <p>Sizni to'y tantanamizga taklif etamiz:</p>
-        
-        <h1>Ali & Valida</h1>
-        
-        <div class="date">
-            <p>?? <strong>SANA:</strong> 25-Sentabr, 2026-yil</p>
-            <p>? <strong>VAQTI:</strong> Soat 18:00 da</p>
-        </div>
-
-        <h3>Manzil:</h3>
-        <p>Toshkent shahri, "Versal" restorani</p>
-
-        <!-- Google Maps yoki Yandex Maps havolasi -->
-        <a href="https://maps.google.com" target="_blank" class="btn">?? Xaritada ko'rish</a>
-    </div>
-</body>
-</html>
+            border-top: 1px solid #d
