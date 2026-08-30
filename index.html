@@ -1,144 +1,290 @@
-[30.08.2026 23:20] 🛡️: <!DOCTYPE html>
+[30.08.2026 23:40] 🛡️: <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javohir & Muslima — To'y Taklifnomasi</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Charm:wght@700&family=Marcellus&display=swap" rel="stylesheet">
+
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
         body {
-            font-family: 'Georgia', serif;
-            background-color: #fcf8f2;
-            color: #4a4a4a;
+            font-family: 'Marcellus', serif;
+            background-color: #faf6ef;
+            background-image: radial-gradient(#e2d5c3 0.75px, transparent 0.75px), radial-gradient(#e2d5c3 0.75px, #faf6ef 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            color: #3a2e2b;
             margin: 0;
             padding: 0;
             text-align: center;
         }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
-        .photo-frame {
-            width: 100%;
-            max-width: 380px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+
+        /* Oltin rang va Islimiy naqshli hoshiya (Frame) */
+        .page-wrapper {
+            max-width: 550px;
             margin: 20px auto;
+            padding: 25px 15px;
+            box-sizing: border-box;
+        }
+
+        .gold-border-card {
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            outline: 6px double #d4af37;
+            outline-offset: -12px;
+            border-radius: 20px;
+            padding: 35px 20px;
+            box-shadow: 0 10px 30px rgba(181, 146, 38, 0.15);
+            position: relative;
+        }
+
+        /* Milliy Naqsh Bezaklari (Yuqori va pastki burchaklar) */
+        .ornament {
+            font-size: 1.8em;
+            color: #d4af37;
+            margin: 5px 0;
             display: block;
         }
-        h1 {
-            font-size: 2.2em;
-            color: #d4af37;
-            margin: 15px 0 5px 0;
+
+        /* Xattotlik (Calligraphy) sarlavhalari */
+        .calligraphy-title {
+            font-family: 'Aref Ruqaa', 'Charm', cursive;
+            font-size: 3.2em;
+            color: #b58d2a;
+            margin: 10px 0 5px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            line-height: 1.2;
         }
+
         .subtitle {
-            font-size: 0.95em;
-            letter-spacing: 2px;
-            color: #777;
+            font-size: 0.85em;
+            letter-spacing: 3px;
+            color: #8c733e;
             text-transform: uppercase;
+            font-weight: bold;
         }
+
+        .photo-frame {
+            width: 85%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 50% 50% 15px 15px; /* Mehrob nusxa arka ko'rinishida */
+            border: 3px solid #d4af37;
+            padding: 5px;
+            background: #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            margin: 20px auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.02);
+        }
+
+        .quote-text {
+            font-family: 'Charm', cursive;
+            font-size: 1.3em;
+            color: #7a6336;
+            margin: 15px 10px;
+            line-height: 1.5;
+        }
+
         .date-box {
-            font-size: 1.1em;
-            margin: 25px 0;
+            background-color: #fcf9f2;
+            border-top: 1px dashed #d4af37;
+            border-bottom: 1px dashed #d4af37;
             padding: 15px;
-            border-top: 1px solid #d4af37;
-            border-bottom: 1px solid #d4af37;
-            line-height: 1.6;
+            margin: 25px 0;
+            font-size: 1.05em;
         }
-        .timer-title {
-            font-size: 0.9em;
-            color: #888;
-            margin-top: 25px;
-            letter-spacing: 1px;
-        }
+
+        /* Milliy uslubdagi Taymer */
         .timer-container {
             display: flex;
             justify-content: center;
-            gap: 12px;
-            margin: 15px 0;
+            gap: 10px;
+            margin: 20px 0;
         }
+
         .timer-block {
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 10px;
-            min-width: 60px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border: 1px solid #f0e6d2;
+            background: linear-gradient(145deg, #ffffff, #f7f2e7);
+            border: 1px solid #d4af37;
+            border-radius: 12px;
+            padding: 10px 5px;
+            min-width: 65px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
         }
+
         .timer-number {
-            font-size: 1.5em;
+            font-family: 'Marcellus', serif;
+            font-size: 1.6em;
             font-weight: bold;
-            color: #d4af37;
+            color: #b58d2a;
             display: block;
         }
+
         .timer-label {
-            font-size: 0.75em;
-            color: #777;
+            font-size: 0.7em;
+            color: #8c733e;
+            text-transform: uppercase;
         }
-        .location-box {
-            background-color: #fff;
-            padding: 20px;
+[30.08.2026 23:40] 🛡️: /* Bloklar va Forma */
+        .section-box {
+            background-color: #fdfbf7;
+            border: 1px solid #e8dfcb;
             border-radius: 15px;
+            padding: 20px;
             margin-top: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: left;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
+
         .btn {
             display: inline-block;
             padding: 14px 28px;
-            background-color: #d4af37;
+            background: linear-gradient(135deg, #d4af37, #b58d2a);
             color: white;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 30px;
             font-size: 1em;
-            margin-top: 15px;
             font-weight: bold;
-            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
-            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(181, 146, 38, 0.3);
+            transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
         }
+
         .btn:hover {
-            background-color: #b59226;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(181, 146, 38, 0.4);
+        }
+
+        /* Forma elementlari */
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            font-size: 0.85em;
+            color: #5c4a28;
+        }
+        .form-group input[type="text"], .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #dcd1ba;
+            background-color: #fff;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 0.95em;
+        }
+        .radio-card {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border: 1px solid #e8dfcb;
+            background-color: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 8px;
+            transition: 0.2s;
+        }
+        .radio-card:hover {
+            border-color: #d4af37;
+            background-color: #fcf9f2;
+        }
+        .radio-card input {
+            margin-right: 10px;
+            accent-color: #b58d2a;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="subtitle">TO'Y TAKLIFNOMASI</div>
-        
-        <!-- Yuklagan rasmingiz photo.jpg nomi bilan ko'rinadi -->
-        <img class="photo-frame" src="photo.jpg" alt="Javohir va Muslima">
-        
-        <h1>Javohir & Muslima</h1>
-        
-        <p style="font-style: italic; color: #666; margin-top: 10px;">
-            "Sizni baxtli kunimizda quvonchimizga sherik bo'lishga taklif etamiz!"
-        </p>
 
-        <div class="date-box">
-            <p>🗓 <strong>SANA:</strong> 30-Sentabr, 2026-yil</p>
-            <p>⏰ <strong>VAQTI:</strong> Soat 18:00 da</p>
-        </div>
+    <div class="page-wrapper">
+        <div class="gold-border-card">
+            
+            <span class="ornament">❖ ⚜ ❖</span>
+            <div class="subtitle">To'y Taklifnomasi</div>
+            
+            <img class="photo-frame" src="photo.jpg" alt="Javohir va Muslima">
+            
+            <div class="calligraphy-title">Javohir & Muslima</div>
+            
+            <div class="quote-text">
+                "Ikki qalbing uchrashuvi — bir umrlik baxtning ibtidosidir..."
+            </div>
 
-        <!-- Ortga hisoblovchi Taymer -->
-        <div class="timer-title">TO'YGATANGACHA QOLDI:</div>
-        <div class="timer-container">
-            <div class="timer-block"><span class="timer-number" id="days">0</span><span class="timer-label">Kun</span></div>
-            <div class="timer-block"><span class="timer-number" id="hours">0</span><span class="timer-label">Soat</span></div>
-[30.08.2026 23:20] 🛡️: <div class="timer-block"><span class="timer-number" id="minutes">0</span><span class="timer-label">Daqiqa</span></div>
-            <div class="timer-block"><span class="timer-number" id="seconds">0</span><span class="timer-label">Soniya</span></div>
-        </div>
+            <span class="ornament" style="font-size:1.2em;">✦ ✦ ✦</span>
 
-        <div class="location-box">
-            <h3 style="margin-top:0; color: #d4af37;">📍 Manzil:</h3>
-            <p><strong>"Tantana" to'yxonasi</strong></p>
-            <p style="color: #666; font-size: 0.95em;">Toshkent sh., Mirobod t., Farg'ona yo'li ko'chasi</p>
+            <div class="date-box">
+                <p style="margin: 5px 0;">🗓 <strong>SANA:</strong> 30-Sentabr, 2026-yil</p>
+                <p style="margin: 5px 0;">⏰ <strong>VAQTI:</strong> Soat 18:00 da</p>
+            </div>
 
-            <a href="https://maps.app.goo.gl/cJHT8BtZ1Bm96YWz9" target="_blank" class="btn">🗺 Xaritada ko'rish (Google Maps)</a>
+            <div class="subtitle" style="margin-top:20px;">TANTANAGACHA QOLDI:</div>
+            <div class="timer-container">
+                <div class="timer-block"><span class="timer-number" id="days">0</span><span class="timer-label">Kun</span></div>
+                <div class="timer-block"><span class="timer-number" id="hours">0</span><span class="timer-label">Soat</span></div>
+                <div class="timer-block"><span class="timer-number" id="minutes">0</span><span class="timer-label">Daqiqa</span></div>
+                <div class="timer-block"><span class="timer-number" id="seconds">0</span><span class="timer-label">Soniya</span></div>
+            </div>
+
+            <div class="section-box" style="text-align: center;">
+                <h3 style="margin-top:0; color: #b58d2a; font-family: 'Aref Ruqaa', serif; font-size: 1.6em;">📍 Manzilimiz</h3>
+[30.08.2026 23:40] 🛡️: <p><strong>"Tantana" to'yxonasi</strong></p>
+                <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">Toshkent sh., Mirobod t., Farg'ona yo'li ko'chasi</p>
+                <a href="https://maps.app.goo.gl/cJHT8BtZ1Bm96YWz9" target="_blank" class="btn" style="display:inline-block; width:auto; padding: 10px 20px;">🗺 Xaritadan ko'rish</a>
+            </div>
+
+            <div class="section-box">
+                <h3 style="margin-top:0; color: #b58d2a; font-family: 'Aref Ruqaa', serif; font-size: 1.6em; text-align: center;">💌 Tashrif va Tilaklar</h3>
+                
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Ismingiz va Familiyangiz:</label>
+                        <input type="text" id="name" name="Mehmon" placeholder="Masalan: Jasur va oilasi" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tashrifingizni tasdiqlang:</label>
+                        <label class="radio-card">
+                            <input type="radio" name="Tashrif" value="Ha, albatta boramiz!" checked>
+                            🎉 Ha, albatta boramiz!
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="Tashrif" value="Afsuski, bora olmaymiz">
+                            😔 Afsuski, bora olmaymiz
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Kelin-kuyovga shirin tilaklaringiz:</label>
+                        <textarea id="message" name="Tabrik va Tilak" rows="3" placeholder="Samimiy tilak va tabriklaringizni shu yerga yozishingiz mumkin..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Javob va Tilakni Yuborish</button>
+                </form>
+            </div>
+
+            <span class="ornament" style="margin-top: 20px;">❖ ⚜ ❖</span>
+
         </div>
     </div>
 
     <script>
-        // To'y sanasi: 2026-yil, 30-sentabr, soat 18:00
         const weddingDate = new Date(2026, 8, 30, 18, 0, 0).getTime();
 
         const countdown = setInterval(function() {
@@ -147,7 +293,7 @@
 
             if (distance < 0) {
                 clearInterval(countdown);
-                document.querySelector(".timer-container").innerHTML = "<p style='font-weight:bold; color:#d4af37;'>To'y tantanasi boshlandi!</p>";
+                document.querySelector(".timer-container").innerHTML = "<p style='font-weight:bold; color:#b58d2a;'>To'y tantanasi boshlandi!</p>";
                 return;
             }
 
