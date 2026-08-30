@@ -1,9 +1,9 @@
-[30.08.2026 23:03] 🛡️: <!DOCTYPE html>
+[30.08.2026 23:20] 🛡️: <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To'yga Taklifnoma</title>
+    <title>Javohir & Muslima — To'y Taklifnomasi</title>
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -18,22 +18,25 @@
             margin: 0 auto;
             padding: 30px 20px;
         }
-        .hero-img {
+        .photo-frame {
             width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            max-width: 380px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            margin: 20px auto;
+            display: block;
         }
         h1 {
-            font-size: 2.5em;
+            font-size: 2.2em;
             color: #d4af37;
-            margin: 10px 0;
+            margin: 15px 0 5px 0;
         }
         .subtitle {
-            font-style: italic;
+            font-size: 0.95em;
+            letter-spacing: 2px;
             color: #777;
+            text-transform: uppercase;
         }
         .date-box {
             font-size: 1.1em;
@@ -41,41 +44,56 @@
             padding: 15px;
             border-top: 1px solid #d4af37;
             border-bottom: 1px solid #d4af37;
+            line-height: 1.6;
         }
-        /* Taymer stili */
-        #timer {
+        .timer-title {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 25px;
+            letter-spacing: 1px;
+        }
+        .timer-container {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin: 25px 0;
+            gap: 12px;
+            margin: 15px 0;
         }
-        .time-card {
-            background: #ffffff;
-            border: 1px solid #e0e0e0;
+        .timer-block {
+            background-color: #fff;
+            padding: 10px;
             border-radius: 10px;
-            padding: 10px 15px;
             min-width: 60px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #f0e6d2;
         }
-        .time-card span {
-            display: block;
+        .timer-number {
             font-size: 1.5em;
             font-weight: bold;
             color: #d4af37;
+            display: block;
         }
-        .time-card small {
-            font-size: 0.8em;
-            color: #666;
+        .timer-label {
+            font-size: 0.75em;
+            color: #777;
+        }
+        .location-box {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         .btn {
             display: inline-block;
-            padding: 12px 30px;
+            padding: 14px 28px;
             background-color: #d4af37;
             color: white;
             text-decoration: none;
             border-radius: 25px;
             font-size: 1em;
             margin-top: 15px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
             transition: 0.3s;
         }
         .btn:hover {
@@ -84,94 +102,60 @@
     </style>
 </head>
 <body>
-
     <div class="container">
-        <!-- Rasm joyi: 'rasm.jpg' o'rniga o'zingiz yuklagan rasm nomini yozasiz -->
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="To'y rasmi" class="hero-img">
+        <div class="subtitle">TO'Y TAKLIFNOMASI</div>
+        
+        <!-- Yuklagan rasmingiz photo.jpg nomi bilan ko'rinadi -->
+        <img class="photo-frame" src="photo.jpg" alt="Javohir va Muslima">
+        
+        <h1>Javohir & Muslima</h1>
+        
+        <p style="font-style: italic; color: #666; margin-top: 10px;">
+            "Sizni baxtli kunimizda quvonchimizga sherik bo'lishga taklif etamiz!"
+        </p>
 
-        <p class="subtitle">HURMATLI MEHMONIMIZ!</p>
-        <p>Sizni to'y tantanamizga taklif etamiz:</p>
-        
-        <h1>Ali & Valida</h1>
-        
         <div class="date-box">
-            <p>🗓 <strong>SANA:</strong> 25-Sentabr, 2026-yil</p>
+            <p>🗓 <strong>SANA:</strong> 30-Sentabr, 2026-yil</p>
             <p>⏰ <strong>VAQTI:</strong> Soat 18:00 da</p>
         </div>
 
-        <!-- Taymer -->
-        <h3>Tantanagacha qolgan vaqt:</h3>
-        <div id="timer">
-            <div class="time-card"><span id="days">00</span><small>kun</small></div>
-            <div class="time-card"><span id="hours">00</span><small>soat</small></div>
-            <div class="time-card"><span id="minutes">00</span><small>daqiqa</small></div>
-            <div class="time-card"><span id="seconds">00</span><small>soniya</small></div>
+        <!-- Ortga hisoblovchi Taymer -->
+        <div class="timer-title">TO'YGATANGACHA QOLDI:</div>
+        <div class="timer-container">
+            <div class="timer-block"><span class="timer-number" id="days">0</span><span class="timer-label">Kun</span></div>
+            <div class="timer-block"><span class="timer-number" id="hours">0</span><span class="timer-label">Soat</span></div>
+[30.08.2026 23:20] 🛡️: <div class="timer-block"><span class="timer-number" id="minutes">0</span><span class="timer-label">Daqiqa</span></div>
+            <div class="timer-block"><span class="timer-number" id="seconds">0</span><span class="timer-label">Soniya</span></div>
         </div>
 
-        <h3>Manzil:</h3>
-        <p>Toshkent shahri, "Versal" restorani</p>
+        <div class="location-box">
+            <h3 style="margin-top:0; color: #d4af37;">📍 Manzil:</h3>
+            <p><strong>"Tantana" to'yxonasi</strong></p>
+            <p style="color: #666; font-size: 0.95em;">Toshkent sh., Mirobod t., Farg'ona yo'li ko'chasi</p>
 
-        <!-- Karta havolasi -->
-        <a href="https://maps.google.com" target="_blank" class="btn">📍 Xaritada ko'rish</a>
+            <a href="https://maps.app.goo.gl/cJHT8BtZ1Bm96YWz9" target="_blank" class="btn">🗺 Xaritada ko'rish (Google Maps)</a>
+        </div>
     </div>
 
     <script>
-        // To'y sanasini belgilash (Yil, Oy-1, Kun, Soat, Daqiqa)
-        // Diqqat: Oylar 0 dan boshlanadi (Yanvar=0, Sentabr=8)
-        const weddingDate = new Date(2026, 8, 25, 18, 0, 0).getTime();
+        // To'y sanasi: 2026-yil, 30-sentabr, soat 18:00
+        const weddingDate = new Date(2026, 8, 30, 18, 0, 0).getTime();
 
-        const timer = setInterval(function() {
+        const countdown = setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
 
             if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("timer").innerHTML = "<h3>To'y tantanasi boshlandi!</h3>";
+                clearInterval(countdown);
+                document.querySelector(".timer-container").innerHTML = "<p style='font-weight:bold; color:#d4af37;'>To'y tantanasi boshlandi!</p>";
                 return;
             }
-[30.08.2026 23:03] 🛡️: const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) /Mana, taymer (ortga hisoblagich) va rasm joylash imkoniyati bor yangilangan HTML/CSS/JS kodi. 
 
-Koddagi toygacha_sana, kuyov_va_kelin_rasmi.jpg hamda ism va manzillarni o'zingiznikiga o meyoriy moslab o'zgartiring.
-
-`html
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To'yga Taklifnoma</title>
-    <style>
-        body {
-            font-family: 'Georgia', serif;
-            background-color: #fcf8f2;
-            color: #4a4a4a;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 30px 20px;
-        }
-        .main-img {
-            width: 100%;
-            max-width: 400px;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-size: 2.2em;
-            color: #d4af37;
-            margin: 10px 0;
-        }
-        .date {
-            font-size: 1.1em;
-            margin: 20px 0;
-            padding: 15px;
-            border-top: 1px solid #d
+            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+        }, 1000);
+    </script>
+</body>
+</html>
