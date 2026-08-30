@@ -1,10 +1,11 @@
-[30.08.2026 23:40] 🛡️: <!DOCTYPE html>
+[31.08.2026 0:20] 🛡️: <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javohir & Muslima — To'y Taklifnomasi</title>
     
+    <!-- Google Fonts: Xattotlik va milliy uslubdagi shriftlar -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Charm:wght@700&family=Marcellus&display=swap" rel="stylesheet">
@@ -25,7 +26,34 @@
             text-align: center;
         }
 
-        /* Oltin rang va Islimiy naqshli hoshiya (Frame) */
+        /* Suzuvchi Musiqa Tugmasi (Floating Music Button) */
+        .music-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37, #b58d2a);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            cursor: pointer;
+            z-index: 1000;
+            border: 2px solid #fff;
+            transition: transform 0.3s ease;
+        }
+        .music-btn.playing {
+            animation: rotate 4s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         .page-wrapper {
             max-width: 550px;
             margin: 20px auto;
@@ -44,7 +72,6 @@
             position: relative;
         }
 
-        /* Milliy Naqsh Bezaklari (Yuqori va pastki burchaklar) */
         .ornament {
             font-size: 1.8em;
             color: #d4af37;
@@ -52,7 +79,6 @@
             display: block;
         }
 
-        /* Xattotlik (Calligraphy) sarlavhalari */
         .calligraphy-title {
             font-family: 'Aref Ruqaa', 'Charm', cursive;
             font-size: 3.2em;
@@ -74,18 +100,13 @@
             width: 85%;
             max-width: 320px;
             height: auto;
-            border-radius: 50% 50% 15px 15px; /* Mehrob nusxa arka ko'rinishida */
+            border-radius: 50% 50% 15px 15px;
             border: 3px solid #d4af37;
             padding: 5px;
             background: #fff;
             box-shadow: 0 8px 25px rgba(0,0,0,0.12);
             margin: 20px auto;
             display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .photo-frame:hover {
-            transform: scale(1.02);
         }
 
         .quote-text {
@@ -105,15 +126,13 @@
             font-size: 1.05em;
         }
 
-        /* Milliy uslubdagi Taymer */
         .timer-container {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin: 20px 0;
         }
-
-        .timer-block {
+[31.08.2026 0:20] 🛡️: .timer-block {
             background: linear-gradient(145deg, #ffffff, #f7f2e7);
             border: 1px solid #d4af37;
             border-radius: 12px;
@@ -135,7 +154,7 @@
             color: #8c733e;
             text-transform: uppercase;
         }
-[30.08.2026 23:40] 🛡️: /* Bloklar va Forma */
+
         .section-box {
             background-color: #fdfbf7;
             border: 1px solid #e8dfcb;
@@ -164,12 +183,6 @@
             text-align: center;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(181, 146, 38, 0.4);
-        }
-
-        /* Forma elementlari */
         .form-group {
             margin-bottom: 15px;
         }
@@ -199,11 +212,6 @@
             border-radius: 8px;
             cursor: pointer;
             margin-bottom: 8px;
-            transition: 0.2s;
-        }
-        .radio-card:hover {
-            border-color: #d4af37;
-            background-color: #fcf9f2;
         }
         .radio-card input {
             margin-right: 10px;
@@ -212,6 +220,14 @@
     </style>
 </head>
 <body>
+
+    <!-- Musiqa Ijro etish Tugmasi -->
+    <div class="music-btn" id="musicBtn" onclick="toggleMusic()">🎵</div>
+
+    <!-- Musiqa Fayli (GitHub-ga music.mp3 deb yuklaysiz yoki tayyor link qo'yasiz) -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="page-wrapper">
         <div class="gold-border-card">
@@ -237,14 +253,14 @@
             <div class="subtitle" style="margin-top:20px;">TANTANAGACHA QOLDI:</div>
             <div class="timer-container">
                 <div class="timer-block"><span class="timer-number" id="days">0</span><span class="timer-label">Kun</span></div>
-                <div class="timer-block"><span class="timer-number" id="hours">0</span><span class="timer-label">Soat</span></div>
+[31.08.2026 0:20] 🛡️: <div class="timer-block"><span class="timer-number" id="hours">0</span><span class="timer-label">Soat</span></div>
                 <div class="timer-block"><span class="timer-number" id="minutes">0</span><span class="timer-label">Daqiqa</span></div>
                 <div class="timer-block"><span class="timer-number" id="seconds">0</span><span class="timer-label">Soniya</span></div>
             </div>
 
             <div class="section-box" style="text-align: center;">
                 <h3 style="margin-top:0; color: #b58d2a; font-family: 'Aref Ruqaa', serif; font-size: 1.6em;">📍 Manzilimiz</h3>
-[30.08.2026 23:40] 🛡️: <p><strong>"Tantana" to'yxonasi</strong></p>
+                <p><strong>"Tantana" to'yxonasi</strong></p>
                 <p style="color: #666; font-size: 0.9em; margin-bottom: 15px;">Toshkent sh., Mirobod t., Farg'ona yo'li ko'chasi</p>
                 <a href="https://maps.app.goo.gl/cJHT8BtZ1Bm96YWz9" target="_blank" class="btn" style="display:inline-block; width:auto; padding: 10px 20px;">🗺 Xaritadan ko'rish</a>
             </div>
@@ -252,31 +268,32 @@
             <div class="section-box">
                 <h3 style="margin-top:0; color: #b58d2a; font-family: 'Aref Ruqaa', serif; font-size: 1.6em; text-align: center;">💌 Tashrif va Tilaklar</h3>
                 
-                <form action="https://t.me/Fevral_Yanvar" target="_blank">
-    <div class="form-group">
-        <label for="name">Ismingiz va Familiyangiz:</label>
-        <input type="text" id="name" name="text" placeholder="Masalan: Jasur va oilasi" required>
-    </div>
+                <form action="https://t.me/telegram_username" target="_blank">
+                    <div class="form-group">
+                        <label for="name">Ismingiz va Familiyangiz:</label>
+                        <input type="text" id="name" name="Mehmon" placeholder="Masalan: Jasur va oilasi" required>
+                    </div>
 
-    <div class="form-group">
-        <label>Tashrifingizni tasdiqlang:</label>
-        <label class="radio-card">
-            <input type="radio" name="Tashrif" value="Ha, albatta boramiz!" checked>
-            🎉 Ha, albatta boramiz!
-        </label>
-        <label class="radio-card">
-            <input type="radio" name="Tashrif" value="Afsuski, bora olmaymiz">
-            😔 Afsuski, bora olmaymiz
-        </label>
-    </div>
+                    <div class="form-group">
+                        <label>Tashrifingizni tasdiqlang:</label>
+                        <label class="radio-card">
+                            <input type="radio" name="Tashrif" value="Ha, albatta boramiz!" checked>
+                            🎉 Ha, albatta boramiz!
+                        </label>
+                        <label class="radio-card">
+                            <input type="radio" name="Tashrif" value="Afsuski, bora olmaymiz">
+                            😔 Afsuski, bora olmaymiz
+                        </label>
+                    </div>
 
-    <div class="form-group">
-        <label for="message">Kelin-kuyovga shirin tilaklaringiz:</label>
-        <textarea id="message" name="Tilak" rows="3" placeholder="Samimiy tilak va tabriklaringizni shu yerga yozishingiz mumkin..."></textarea>
-    </div>
+                    <div class="form-group">
+                        <label for="message">Kelin-kuyovga shirin tilaklaringiz:</label>
+                        <textarea id="message" name="Tilak" rows="3" placeholder="Samimiy tilak va tabriklaringizni shu yerga yozishingiz mumkin..."></textarea>
+                    </div>
 
-    <button type="submit" class="btn">Telegram orqali yuborish</button>
-</form>
+                    <button type="submit" class="btn">Javobni Yuborish</button>
+                </form>
+            </div>
 
             <span class="ornament" style="margin-top: 20px;">❖ ⚜ ❖</span>
 
@@ -284,13 +301,42 @@
     </div>
 
     <script>
+        // Musiqani boshqarish funksiyasi
+        const music = document.getElementById("bgMusic");
+        const musicBtn = document.getElementById("musicBtn");
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicBtn.classList.remove("playing");
+                musicBtn.innerText = "🔇";
+            } else {
+                music.play();
+                musicBtn.classList.add("playing");
+                musicBtn.innerText = "🎵";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Foydalanuvchi ekranga birinchi marta bosganda musiqani avtomatik yoqishga harakat qilish
+        document.body.addEventListener('click', function() {
+            if (!isPlaying) {
+                music.play().then(() => {
+                    isPlaying = true;
+                    musicBtn.classList.add("playing");
+                    musicBtn.innerText = "🎵";
+                }).catch(() => {});
+            }
+        }, { once: true });
+
+        // Taymer kodi
         const weddingDate = new Date(2026, 8, 30, 18, 0, 0).getTime();
 
         const countdown = setInterval(function() {
             const now = new Date().getTime();
             const distance = weddingDate - now;
-
-            if (distance < 0) {
+[31.08.2026 0:20] 🛡️: if (distance < 0) {
                 clearInterval(countdown);
                 document.querySelector(".timer-container").innerHTML = "<p style='font-weight:bold; color:#b58d2a;'>To'y tantanasi boshlandi!</p>";
                 return;
